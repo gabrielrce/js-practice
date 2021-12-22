@@ -1,0 +1,71 @@
+1.- Que pasa si no pones el array de dependencias en el useffect
+Puede entrar en un ciclo infinito.
+Sin el array de dependencias, los effects son ejecutados después de cada render — y ajustar el estado va a disparar los effects de nuevo.
+Un ciclo infinito también pueda darse si especificas un valor que siempre cambia en el arreglo de dependencias.[]
+
+2.- Especificidad en CSS
+Es un grupo de reglas aplicadas que determinan una puntuación o rango que decide que declaración de estilo se aplica a un elemento.
+Cuanto más específico sea un selector, mayor será su valor en puntos y más probable será que esté presente en el estilo del elemento.
+* -> menor especificidad 0000
+!important-> mayor especificidad 10000
+
+inline styles - id - clases, atributos, pseudoclases - elementos y pseudoelementos.
+          mayor especificidad-------------------->menor especificidad
+
+3.- Describe Event Loop
+Es el secreto detras de la programacion asincrona de js.
+Callstack LIFO -> Last In, First Out
+Event Queue FIFO -> First In, First Out
+
+The event queue is responsible for sending new functions to the track for processing only if the callstack is empty.
+
+Cuando una funcion asincrona es llamada, se manda a la browser/web API, y basada en las instrucciones recividas del callstack, 
+la API empieza su operacion single-threaded.
+
+Un ejemplo es el metodo setTimeout, cuando se procesa en el stack, se envia la operacion a la API, la cual espera el tiempo especificado
+para retornar la operacion al event loop (y luego al callstack) para su procesamiento.
+
+4.-Hoisting
+It is a default behaviour of javascript where all the variable and function declarations are moved on top.
+
+5.- Difference between == y === 
+Both are comparison operators. The difference between both the operators is that,
+“==” is used to compare values whereas, “ === “ is used to compare both value and types.
+
+6.- Implicit Type Coercion in javascript.
+Implicit type coercion in javascript is automatic conversion of value from one data type to another. 
+It takes place when the operands of an expression are of different data types.
+
+7.- This
+The “this” keyword refers to the object that the function is a property of.
+
+The value of “this” keyword will always depend on the object that is invoking the function.
+
+8.- Scope 
+Scope in JS, determines the accessibility of variables and functions at various parts in one’s code.
+
+In general terms, the scope will let us know at a given part of code, what are the variables and functions that we can or cannot access.
+
+There are three types of scopes in JS:
+
+Global Scope
+Local or Function Scope
+Block Scope
+
+9.- Callbacks 
+A callback is a function that will be executed after another function gets executed.
+
+10.- Closures
+Closures is an ability of a function to remember the variables and functions that are declared in its outer scope.
+function randomFunc(){
+  var obj1 = {name:"Vivian", age:45};
+
+  return function(){
+    console.log(obj1.name + " is "+ "awesome"); // Has access to obj1 even when the randomFunc function is executed
+
+  }
+}
+
+var initialiseClosure = randomFunc(); // Returns a function
+
+initialiseClosure(); 
