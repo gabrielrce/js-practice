@@ -69,3 +69,8 @@ function randomFunc(){
 var initialiseClosure = randomFunc(); // Returns a function
 
 initialiseClosure(); 
+
+11.- Difference between lcoalSotrage and sessionStorage
+The localStorage object stores the data without an expiry date. However, sessionStorage object stores the data for only one session.
+In the case of a localStorage object, data will not delete when the browser window closes. However, the data gets deleted if the browser window closes, in the case of sessionStorage objects.
+The data in sessionStorage is accessible only in the current window of the browser. But, the data in the localStorage can be shared between multiple windows of the browser.
